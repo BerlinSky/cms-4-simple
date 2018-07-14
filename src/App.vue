@@ -8,16 +8,17 @@
 
     <shopping-input></shopping-input>
     <shopping-list :shoppingList="shoppingList"></shopping-list>
-
     <button>Static Button</button>
 
-    <message></message>
-    <message>
-      <h2>This is the first message</h2>
-    </message>
-    <message>
-      <h2>This is the second message</h2>
-    </message>
+    <div>
+      <input type="text" v-model="message">
+      <button @click="sendMessage()">+</button>
+
+      <message v-for="message in messageList" :message-text="message.text" :key="message.text">
+        <h2 slot="date">{{ message.date | date }}</h2>
+      </message>
+    </div>
+
   </div>
 </template>
 
@@ -28,7 +29,10 @@ import EventBus from './EventBus';
 import ShoppingInput from './components/ShoppingInput';
 import ShoppingList from './components/ShoppingList'
 
+import moment from 'moment';
 import Message from './components/Message';
+
+const convertDateToString = value => moment(String(value)).format("dddd, MMMM Do YYYY");
 
 export default {
   name: 'app',
@@ -41,7 +45,9 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      shoppingList: []
+      shoppingList: [],
+      message: '',
+      messageList: [],
     }
   },
   created() {
@@ -52,7 +58,17 @@ export default {
   methods: {
     eventListenner(message) {
       console.log("The button was clicked from the child component with this message: " + message);
+    },
+    sendMessage() {
+      if (this.message.length >0) {
+        this.messageList.push({date: new Date(), text: this.message});
+        console.log(this.message);
+        this.message = '';
+      }
     }
+  },
+  filters: {
+    date: convertDateToString
   }
 }
 </script>
