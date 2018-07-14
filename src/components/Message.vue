@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1>Message Board</h1>
-    <slot></slot>
+    <slot>
+      <h2>This is the default message</h2>
+    </slot>
   </div>
 </template>
 

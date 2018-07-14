@@ -11,6 +11,7 @@
 
     <button>Static Button</button>
 
+    <message></message>
     <message>
       <h2>This is the first message</h2>
     </message>
