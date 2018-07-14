@@ -6,22 +6,47 @@
 
     <fancy-button @buttonClicked="eventListenner($event)" button-title="Not so fancy Button"></fancy-button>
 
+    <shopping-input></shopping-input>
+    <shopping-list :shoppingList="shoppingList"></shopping-list>
+
     <button>Static Button</button>
+
+    <message>
+      <h2>This is the first message</h2>
+    </message>
+    <message>
+      <h2>This is the second message</h2>
+    </message>
   </div>
 </template>
 
 <script>
 import FancyButton from './components/FancyButton';
 
+import EventBus from './EventBus';
+import ShoppingInput from './components/ShoppingInput';
+import ShoppingList from './components/ShoppingList'
+
+import Message from './components/Message';
+
 export default {
   name: 'app',
   components: {
-    FancyButton
+    FancyButton,
+    ShoppingInput,
+    ShoppingList,
+    Message
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      shoppingList: []
     }
+  },
+  created() {
+    EventBus.$on('addShoppingItem', (itemName) => {
+      this.shoppingList.push(itemName);
+    })
   },
   methods: {
     eventListenner(message) {
