@@ -1,27 +1,62 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <form class="form" @submit.prevent="onSumit">
+      <div class="input">
+        <label for="email">Email</label>
+        <input :class="{ error: $v.email.$error }" type="email" id="email" v-model.trim="email" @input="$v.email.$touch()">
+        <!-- <div v-if="$v.email.$dirty">
+          <p class="error-message" v-if="!$v.email.email">Please enter a
+          valid email address.</p>
+          <p class="error-message" v-if="!$v.email.required">Email must not
+          be empty.</p>
+        </div> -->
+      </div>
 
-    <transition name="fadeIn"
-      enter-active-class="animated fadeIn"
-      leave-active-class="animated fadeOut">
+      <div class="input">
+        <label for="firstName">First Name</label>
+        <input :class="{ error: $v.firstName.$error }" type="text" id="firstName" v-model.trim="firstName">
+      </div>
+      <div class="input">
+        <label for="lastName">Last Name</label>
+        <input :class="{ error: $v.lastName.$error}" type="text" id="lastName" v-model.trim="lastName">
+      </div>
+      <div class="input">
+        <label for="password">Password</label>
+        <input :class="{ error: $v.password.$error }" type="password" id="password" v-model.trim="password">
+      </div>
+      <button type="submit">Submit</button>
+    </form>
 
-      <h1 v-if="toggle">I fade in and out!</h1>
-    </transition>
+    <div class="validator">
+      <pre>{{ $v }}</pre>
+    </div>
 
-    <button @click="toggle = !toggle">Toggle Heading</button>
   </div>
 </template>
 
 <script>
+import { required, email } from 'vuelidate/lib/validators';
+
 export default {
   name: 'app',
   data () {
     return {
-      toggle: false
+      email: '',
+      password: '',
+      firstName: '',
+      lastName: ''
+    }
+  },
+  validations: {
+    email: {
+      required,
+      email,
     }
   },
   methods: {
+    onSumit() {
+
+    }
   },
   filters: {
   }
@@ -36,6 +71,23 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.form {
+  display: inline-block;
+  text-align: center;
+  width: 49%;
+}
+
+.error-message {
+ color: red;
+}
+
+input:focus {
+  outline: none;
+}
+
+.error {
+  border: 1px solid red;
 }
 
 h1, h2 {
