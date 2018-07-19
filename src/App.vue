@@ -6,10 +6,10 @@
       <p  @click="setEdit()" v-if="!editing">
         {{ course.name }}
       </p>
-
       <div v-else>
         <input type="text" v-model="course.name" placeholder="Course name">
         <button @click="saveCourse(course)">Save</button>
+        <button @click="removeCourse(course)">Remove</button>
       </div>
     </div>
 
@@ -63,6 +63,15 @@ export default {
         .put(`${this.ROOT_URL}/${course.id}`, { ...course })
         .then(response => {
           console.log(response.data);
+        })
+        .catch(error => console.log(error));
+    },
+    removeCourse(course) {
+      axios
+        .delete(`${this.ROOT_URL}/${course.id}`)
+        .then(response => {
+          this.setEdit();
+          this.courses = this.courses.filter(c => c.id != course.id);
         })
         .catch(error => console.log(error));
     }
