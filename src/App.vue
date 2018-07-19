@@ -1,25 +1,48 @@
+<template>
+  <div class="course-list">
+    <h1>Courses</h1>
+    <div v-for="course in courses" :key="course.id">
+      <p>
+        {{ course.name }}
+      </p>
+    </div>
+  </div>
+</template>
+
+
 <script>
-import ListItem from "./components/ListItem.vue";
+import axios from 'axios';
 
 export default {
   data() {
     return {
-      names: ['New Day', 'New Week', 'New Month', 'New Year']
+      ROOT_URL: 'http://localhost:3000/courses',
+      courses: []
     }
   },
-  render(h) {
-    return h('div', [
-      h('ul', { style: { color: 'tomato' }}, [
-        this.names.map(name =>
-          h (ListItem, {
-            props: { name: name }
-          }))
-      ])
-    ])
+  created() {
+    this.getCourseList();
+  },
+  methods: {
+    getCourseList() {
+      axios
+        .get(this.ROOT_URL)
+        .then(response => {
+          this.courses = response.data;
+        })
+        .catch(error => console.log(error))
+    }
   }
 }
 </script>
 
 <style>
-
+  .course-list {
+    background-color: tomato;
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+  }
 </style>
