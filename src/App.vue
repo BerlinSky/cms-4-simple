@@ -1,12 +1,19 @@
 <template>
   <div class="course-list">
     <h1>Courses</h1>
+
     <div v-for="course in courses" :key="course.id">
-      <p>
+      <p  @click="setEdit()" v-if="!editing">
         {{ course.name }}
       </p>
+
+      <div v-else>
+        <input type="text" v-model="course.name" placeholder="Course name">
+        <button @click="saveCourse(course)">Save</button>
+      </div>
     </div>
-    <div>
+
+    <div v-if="!editing">
       <input type="text" v-model="courseName" placeholder="Course name">
       <button @click="addCourse(courseName)">Add</button>
     </div>
@@ -22,13 +29,17 @@ export default {
     return {
       ROOT_URL: 'http://localhost:3000/courses',
       courses: [],
-      courseName: ''
+      courseName: '',
+      editing: false
     }
   },
   created() {
     this.getCourseList();
   },
   methods: {
+    setEdit() {
+      this.editing = !this.editing;
+    },
     getCourseList() {
       axios
         .get(this.ROOT_URL)
@@ -45,6 +56,15 @@ export default {
           this.courseName = '';
         })
         .catch(error => console.log(error))
+    },
+    saveCourse(course) {
+      this.setEdit();
+      axios
+        .put(`${this.ROOT_URL}/${course.id}`, { ...course })
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => console.log(error));
     }
   }
 }
