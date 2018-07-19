@@ -11,6 +11,10 @@
     {
       "id": 3,
       "name": "Cross Platform Native Applications with Fuse"
+    },
+    {
+      "name": "New course",
+      "id": 4
     }
   ]
 }

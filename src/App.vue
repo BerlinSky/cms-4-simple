@@ -6,6 +6,10 @@
         {{ course.name }}
       </p>
     </div>
+    <div>
+      <input type="text" v-model="courseName" placeholder="Course name">
+      <button @click="addCourse(courseName)">Add</button>
+    </div>
   </div>
 </template>
 
@@ -17,7 +21,8 @@ export default {
   data() {
     return {
       ROOT_URL: 'http://localhost:3000/courses',
-      courses: []
+      courses: [],
+      courseName: ''
     }
   },
   created() {
@@ -29,6 +34,15 @@ export default {
         .get(this.ROOT_URL)
         .then(response => {
           this.courses = response.data;
+        })
+        .catch(error => console.log(error))
+    },
+    addCourse(name) {
+      axios
+        .post(this.ROOT_URL, { name })
+        .then(response => {
+          this.courses.push(response.data);
+          this.courseName = '';
         })
         .catch(error => console.log(error))
     }
