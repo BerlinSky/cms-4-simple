@@ -29,6 +29,18 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  console.log(`Router to`, to);
+  console.log(`Router from`, from);
+  next();
+});
+
+router.beforeResolve((to, from, next) => {
+  console.log(`beforeResolve: Router to`, to);
+  console.log(`beforeResolve: Router from`, from);
+  next();
+});
+
 new Vue({
   el: '#app',
   router,
