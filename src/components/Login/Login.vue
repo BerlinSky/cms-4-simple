@@ -1,9 +1,15 @@
 <template>
   <div class="loginPage">
     <div class="loginContainer">
-      <div class="panel">Name</div>
-      <div class="panel">Password</div>
-      <div class="panel">Login</div>
+      <div class="panel">
+        <input type="text" placeholder="User Name">
+      </div>
+      <div class="panel">
+        <input type="password" placeholder="Password">
+      </div>
+      <div class="panel">
+        <button disabled="disabled">Sign In</button>
+      </div>
     </div>
   </div>
 </template>
@@ -36,14 +42,33 @@ export default {
       align-items: center;
 
       .panel {
-        background-color: tomato;
+        // background-color: tomato;
         flex: 1 0 50px;
         min-width: 300px;
-        font-size: 30px;
         margin: 2px;
       }
     }
-
-
   }
+
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-size: 24px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: tomato;
+    color: white;
+    font-size: 24px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
 </style>
