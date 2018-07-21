@@ -1,5 +1,5 @@
 <template>
-  <div class="loginPage">
+  <div class="page">
     <div class="loginContainer">
       <div class="panel">
         <input type="text" placeholder="User Name">
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .loginPage {
+  .page {
     border: solid 5px #000;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
