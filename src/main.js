@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import App from './App.vue';
+import Login from './components/Login/Login';
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,7 @@ const appFour = {
 };
 
 const routes = [
+  { path: '/login', component: Login },
   { path: '/one', component: appOne },
   { path: '/two', component: appTwo },
   { path: '/three/:name', component: appThree },
