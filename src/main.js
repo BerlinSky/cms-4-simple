@@ -3,11 +3,11 @@ import VueRouter from 'vue-router';
 
 import App from './App.vue';
 import Login from './components/Login/Login';
+import Landing from './components/Landing/Landing';
 
 Vue.use(VueRouter);
 
 const appOne = { template: `<h1>Eins</h1>`};
-const appTwo = { template: `<h1>Zwei</h1>`};
 const appThree = { template: `<h1>Hello, {{ $route.params.name }}</h1>`};
 const appFour = {
   template: `<h1>Yo, {{ $route.params.name }}</h1>`,
@@ -21,8 +21,7 @@ const appFour = {
 
 const routes = [
   { path: '/login', component: Login },
-  { path: '/one', component: appOne },
-  { path: '/two', component: appTwo },
+  { path: '/landing', component: Landing },
   { path: '/three/:name', component: appThree },
   { path: '/four/:name', component: appFour, props: true },
 ]
