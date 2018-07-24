@@ -2,7 +2,9 @@
   <div class="page">
     <div class="navigation">
       <div class="menuLauncher">
-        <font-awesome-icon icon="bars"></font-awesome-icon>
+        <button type="button" @click="showModal">
+          <font-awesome-icon icon="bars"></font-awesome-icon>
+        </button>
       </div>
       <div class="artistListContainer">
         <div class="select">
@@ -16,7 +18,6 @@
     </div>
     <div class="content">
       Landing
-      <button type="button" class="btn" @click="showModal">Open Modal</button>
     </div>
 
     <modal v-show="isModalVisible" @close="closeModal"></modal>
@@ -37,11 +38,10 @@ export default {
   },
   methods: {
     showModal() {
-      console.log("show modal");
-      this.isModalVisbile = true;
+      this.isModalVisible = true;
     },
     closeModal() {
-      this.isModalVisbile = false;
+      this.isModalVisible = false;
     }
   }
 }
@@ -136,7 +136,7 @@ export default {
     top: 0;
     right: 0;
     bottom: 0;
-    padding: 0 20px;
+    padding: 0 30px;
     background: transparent;
     pointer-events: none;
     font-size: 16px;

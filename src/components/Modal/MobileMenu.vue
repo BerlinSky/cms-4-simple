@@ -1,30 +1,31 @@
 <template>
-  <div class="modal-backdrop">
-    <div class="modal">
-      <header class="modal-header">
-        <slot name="header">
-          The page title!
+  <transition name="modal-fade">
+    <div class="modal-backdrop">
+      <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <header class="modal-header">
+          <slot name="header">
+            The page title!
+            <button type="button" class="btn-close" @click="close">X</button>
+          </slot>
+        </header>
 
-          <button type="button" class="btn-close" @click="close">X</button>
-        </slot>
-      </header>
+        <section class="modal-body">
+          <slot name="body">
+            The page body!
+          </slot>
+        </section>
 
-      <section class="modal-body">
-        <slot name="body">
-          The page body!
-        </slot>
-      </section>
+        <footer class="modal-footer">
+          <slot name="footer">
+            The page footer
+          </slot>
 
-      <footer class="modal-footer">
-        <slot name="footer">
-          The page footer
-        </slot>
+          <button class="btn-green" type="button" @click="close">Close me!</button>
 
-        <button class="btn-green" type="button" @click="close">Close me!</button>
-
-      </footer>
+        </footer>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -39,62 +40,75 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .modal {
-    background: #FFFFFF;
-    box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-  }
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .modal-header,
-  .modal-footer {
-    padding: 15px;
-    display: flex;
-  }
+.modal {
+  background: #ffffff;
+  box-shadow: 2px 2px 20px 1px;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+}
 
-  .modal-header {
-    border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
-    justify-content: space-between;
-  }
+.modal-header,
+.modal-footer {
+  padding: 15px;
+  display: flex;
+}
 
-  .modal-footer {
-    border-top: 1px solid #eeeeee;
-    justify-content: flex-end;
-  }
+.modal-header {
+  border-bottom: 1px solid #eeeeee;
+  color: #4aae9b;
+  justify-content: space-between;
+}
 
-  .modal-body {
-    position: relative;
-    padding: 20px 10px;
-  }
+.modal-footer {
+  border-top: 1px solid #eeeeee;
+  justify-content: flex-end;
+}
 
-  .btn-close {
-    border: none;
-    font-size: 20px;
-    padding: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #4AAE9B;
-    background: transparent;
-  }
+.modal-body {
+  position: relative;
+  padding: 20px 10px;
+}
 
-  .btn-green {
-    color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
-    border-radius: 2px;
-  }
+.btn-close {
+  border: none;
+  font-size: 20px;
+  padding: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4aae9b;
+  background: transparent;
+}
+
+.btn {
+  color: white;
+  background: #4aae9b;
+  border: 1px solid #4aae9b;
+  border-radius: 2px;
+}
+
+.modal-fade-enter,
+.modal-fade-leave-active {
+  opacity: 0;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+
 </style>
