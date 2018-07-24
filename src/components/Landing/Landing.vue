@@ -7,10 +7,9 @@
       <div class="artistListContainer">
         <div class="select">
           <select name="slct" id="slct">
-            <option>Choose an option</option>
-            <option value="1">Pure CSS</option>
-            <option value="2">No JS</option>
-            <option value="3">Nice!</option>
+            <option selected value="1">madonna.com</option>
+            <option value="2">New Kids on the Block</option>
+            <option value="3">GunsNRoses.com</option>
           </select>
         </div>
       </div>
