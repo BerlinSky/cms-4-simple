@@ -5,7 +5,14 @@
         <font-awesome-icon icon="bars"></font-awesome-icon>
       </div>
       <div class="artistListContainer">
-        My Artist Dropdown
+        <div class="select">
+          <select name="slct" id="slct">
+            <option>Choose an option</option>
+            <option value="1">Pure CSS</option>
+            <option value="2">No JS</option>
+            <option value="3">Nice!</option>
+          </select>
+        </div>
       </div>
     </div>
     <div class="content">
@@ -55,7 +62,7 @@ export default {
       }
     }
     .artistListContainer {
-      background-color: yellowgreen;
+      color: #fff;
     }
   }
 
@@ -63,6 +70,64 @@ export default {
     background-color: lightgray;
     width: 100%;
     flex: 1 1;
+  }
+
+  /* Reset Select */
+  select {
+    // appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: transparent;
+    background-image: none;
+  }
+
+  /* Custom Select */
+  .select {
+    position: relative;
+    display: block;
+    width: 300px;
+    height: 3em;
+    line-height: 3;
+    background: transparent;
+    overflow: hidden;
+    border-radius: .25em;
+  }
+
+  select {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 0 0 2.5em;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 20px;
+    background: transparent;
+    pointer-events: none;
+    font-size: 16px;
+  }
+
+  /* Transition */
+  .select:hover::after {
+    color: #fff;
+  }
+
+  .select::after {
+    transition: .25s all ease;
   }
 
 </style>
