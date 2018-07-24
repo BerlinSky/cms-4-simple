@@ -16,13 +16,34 @@
     </div>
     <div class="content">
       Landing
+      <button type="button" class="btn" @click="showModal">Open Modal</button>
     </div>
+
+    <modal v-show="isModalVisible" @close="closeModal"></modal>
   </div>
 </template>
 
 <script>
-export default {
+import modal from '../Modal/MobileMenu';
 
+export default {
+  components: {
+    modal,
+  },
+  data() {
+    return {
+      isModalVisible: false,
+    }
+  },
+  methods: {
+    showModal() {
+      console.log("show modal");
+      this.isModalVisbile = true;
+    },
+    closeModal() {
+      this.isModalVisbile = false;
+    }
+  }
 }
 </script>
 
