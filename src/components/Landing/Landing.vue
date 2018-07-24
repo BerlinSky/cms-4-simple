@@ -86,18 +86,19 @@ export default {
     position: relative;
     display: block;
     width: 300px;
-    height: 3em;
+    height: 48px;
     line-height: 3;
     background: transparent;
     overflow: hidden;
-    border-radius: .25em;
+    border-radius: 0;
   }
 
   select {
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0 0 0 2.5em;
+    // padding: 0 0 0 2.5em;
+    padding: 0 0 0 40px;
     color: #fff;
     cursor: pointer;
     font-size: 16px;
