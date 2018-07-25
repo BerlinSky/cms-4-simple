@@ -4,8 +4,7 @@
       <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
         <header class="modal-header">
           <slot name="header">
-            CMS
-            <button type="button" class="btnClose" @click="close">X</button>
+            <!-- <button type="button" class="btnClose" @click="close">X</button> -->
           </slot>
         </header>
 

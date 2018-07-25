@@ -7,13 +7,16 @@
         </button>
       </div>
       <div class="artistListContainer">
-        <div class="select">
-          <select name="slct" id="slct">
+        <div>New Kids on the Block</div>
+        <!-- <div class="select"> -->
+          <!-- <select name="slct" id="slct">
             <option selected value="1">madonna.com</option>
             <option value="2">New Kids on the Block</option>
             <option value="3">GunsNRoses.com</option>
           </select>
-        </div>
+        </div> -->
+        <font-awesome-icon :icon="['fas', 'user']" :mask="['fas', 'circle']" size="2x"></font-awesome-icon>
+
       </div>
     </div>
     <div class="content">
@@ -83,6 +86,8 @@ export default {
     }
     .artistListContainer {
       color: #fff;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 

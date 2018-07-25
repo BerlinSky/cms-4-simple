@@ -2,10 +2,11 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBars, faStickyNote} from '@fortawesome/free-solid-svg-icons';
+import { faBars, faStickyNote, faUser, faCircle } from '@fortawesome/free-solid-svg-icons';
+// import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faBars, faStickyNote);
+library.add(faBars, faStickyNote, faUser , faCircle);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 import App from './App.vue';
