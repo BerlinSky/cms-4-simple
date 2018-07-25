@@ -11,7 +11,13 @@
 
         <section class="modal-body">
           <slot name="body">
-            The page body!
+            <div class="menu">
+             <ul>
+              <li><a href="#">Nav Item</a></li>
+              <li><a href="#">Nav Item</a></li>
+              <li><a href="#">Nav Item</a></li>
+            </ul>
+            </div>
           </slot>
         </section>
 
@@ -110,5 +116,35 @@ export default {
   transition: opacity 0.5s ease;
 }
 
+.menu {
+  // position: fixed;
+  // // right: -100%;
+  // top: 0;
+
+  height: 200%;
+  width: 250px;
+
+  cursor: pointer;
+  background-color: #efefef;
+
+  transition: .53s transform;
+  transition-timing-function: cubic-bezier(.38,.52,.37,1);
+
+    ul {
+      padding: 0;
+      margin: 0;
+
+      li {
+        list-style: none;
+        a {
+          text-decoration: none;
+          color: grey;
+          padding: 20px;
+          display: block;
+          border-bottom: 1px solid #ccc;
+        }
+      }
+    }
+}
 
 </style>
