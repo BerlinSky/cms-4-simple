@@ -13,9 +13,17 @@
           <slot name="body">
             <div class="menu">
              <ul>
-              <li><a href="#">Nav Item</a></li>
-              <li><a href="#">Nav Item</a></li>
-              <li><a href="#">Nav Item</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">News & Blog</a></li>
+              <li><a href="#">Media</a></li>
+              <li><a href="#">Discography</a></li>
+              <li><a href="#">Tours</a></li>
+              <li><a href="#">Blocks</a></li>
+              <li><a href="#">Comments</a></li>
+              <li><a href="#">Users</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Admin</a></li>
+              <li><a href="#">Sign Out</a></li>
             </ul>
             </div>
           </slot>
@@ -26,7 +34,7 @@
             The page footer
           </slot>
 
-          <button class="btn-green" type="button" @click="close">Close me!</button>
+          <!-- <button class="btn-green" type="button" @click="close">Close me!</button> -->
 
         </footer>
       </div>
