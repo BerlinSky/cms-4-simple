@@ -4,8 +4,8 @@
       <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
         <header class="modal-header">
           <slot name="header">
-            The page title!
-            <button type="button" class="btn-close" @click="close">X</button>
+            CMS
+            <button type="button" class="btnClose" @click="close">X</button>
           </slot>
         </header>
 
@@ -14,7 +14,11 @@
             <div class="menu">
              <ul>
               <li><a href="#">Dashboard</a></li>
-              <li><a href="#">News & Blog</a></li>
+              <li>
+          <font-awesome-icon icon="sticky-note"></font-awesome-icon>
+
+
+                <a href="#">News & Blog</a></li>
               <li><a href="#">Media</a></li>
               <li><a href="#">Discography</a></li>
               <li><a href="#">Tours</a></li>
@@ -82,6 +86,13 @@ export default {
 }
 
 .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.modal-header {
   border-bottom: 1px solid #eeeeee;
   color: #4aae9b;
   justify-content: space-between;
@@ -97,10 +108,10 @@ export default {
   padding: 20px 10px;
 }
 
-.btn-close {
+.btnClose {
   border: none;
   font-size: 20px;
-  padding: 20px;
+  // padding: 10px;
   cursor: pointer;
   font-weight: bold;
   color: #4aae9b;
@@ -138,21 +149,21 @@ export default {
   transition: .53s transform;
   transition-timing-function: cubic-bezier(.38,.52,.37,1);
 
-    ul {
-      padding: 0;
-      margin: 0;
+  ul {
+    padding: 0;
+    margin: 0;
 
-      li {
-        list-style: none;
-        a {
-          text-decoration: none;
-          color: grey;
-          padding: 20px;
-          display: block;
-          border-bottom: 1px solid #ccc;
-        }
+    li {
+      list-style: none;
+      a {
+        text-decoration: none;
+        color: grey;
+        padding: 20px;
+        display: block;
+        border-bottom: 1px solid #ccc;
       }
     }
+  }
 }
 
 </style>
