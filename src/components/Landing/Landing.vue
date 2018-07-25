@@ -1,22 +1,18 @@
 <template>
   <div class="page">
     <div class="navigation">
+      <div class="userMenuLauncher">
+        <button type="button" @click="showModal">
+          <font-awesome-icon :icon="['fas', 'user']" size="2x"></font-awesome-icon>
+        </button>
+      </div>
+      <div class="currentArtist">
+        <span>New Kids on the Block</span>
+      </div>
       <div class="menuLauncher">
         <button type="button" @click="showModal">
           <font-awesome-icon icon="bars"></font-awesome-icon>
         </button>
-      </div>
-      <div class="artistListContainer">
-        <div>New Kids on the Block</div>
-        <!-- <div class="select"> -->
-          <!-- <select name="slct" id="slct">
-            <option selected value="1">madonna.com</option>
-            <option value="2">New Kids on the Block</option>
-            <option value="3">GunsNRoses.com</option>
-          </select>
-        </div> -->
-        <font-awesome-icon :icon="['fas', 'user']" :mask="['fas', 'circle']" size="2x"></font-awesome-icon>
-
       </div>
     </div>
     <div class="content">
@@ -74,8 +70,17 @@ export default {
     flex: 0 0 65px;
 
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+
+    .userMenuLauncher {
+      svg {
+        margin: 10px;
+        width: 35px;
+        height: 35px;
+        // color: #fff;
+      }
+    }
 
     .menuLauncher {
       svg {
@@ -97,63 +102,5 @@ export default {
     flex: 1 1;
   }
 
-  /* Reset Select */
-  select {
-    // appearance: none;
-    outline: 0;
-    box-shadow: none;
-    border: 0 !important;
-    background: transparent;
-    background-image: none;
-  }
-
-  /* Custom Select */
-  .select {
-    position: relative;
-    display: block;
-    width: 300px;
-    height: 48px;
-    line-height: 3;
-    background: transparent;
-    overflow: hidden;
-    border-radius: 0;
-  }
-
-  select {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    // padding: 0 0 0 2.5em;
-    padding: 0 0 0 40px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  select::-ms-expand {
-    display: none;
-  }
-
-  /* Arrow */
-  .select::after {
-    content: '\25BC';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0 30px;
-    background: transparent;
-    pointer-events: none;
-    font-size: 16px;
-  }
-
-  /* Transition */
-  .select:hover::after {
-    color: #fff;
-  }
-
-  .select::after {
-    transition: .25s all ease;
-  }
 
 </style>

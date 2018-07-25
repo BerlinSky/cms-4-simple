@@ -2,12 +2,14 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBars, faStickyNote, faUser, faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faStickyNote, faUser, faCircle, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 // import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
 
-library.add(faBars, faStickyNote, faUser , faCircle);
+library.add(faBars, faStickyNote, faUser , faCircle, faUserCircle);
+
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component('font-awesome-layers', FontAwesomeLayers);
 
 import App from './App.vue';
 import Login from './components/Login/Login';
