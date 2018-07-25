@@ -4,7 +4,7 @@
       <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
         <header class="modal-header">
           <slot name="header">
-            <!-- <button type="button" class="btnClose" @click="close">X</button> -->
+            <button type="button" class="btnClose" @click="close">X</button>
           </slot>
         </header>
 
@@ -15,9 +15,7 @@
               <li><a href="#">Dashboard</a></li>
               <li>
           <font-awesome-icon icon="sticky-note"></font-awesome-icon>
-
-
-                <a href="#">News & Blog</a></li>
+              <a href="#">News & Blog</a></li>
               <li><a href="#">Media</a></li>
               <li><a href="#">Discography</a></li>
               <li><a href="#">Tours</a></li>
@@ -63,10 +61,10 @@ export default {
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 10px;
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -139,8 +137,8 @@ export default {
   // // right: -100%;
   // top: 0;
 
-  height: 200%;
-  width: 250px;
+  min-height: 100%;
+  width: 300px;
 
   cursor: pointer;
   background-color: #efefef;

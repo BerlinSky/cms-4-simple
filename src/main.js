@@ -14,11 +14,11 @@ Vue.component('font-awesome-layers', FontAwesomeLayers);
 import App from './App.vue';
 import Login from './components/Login/Login';
 import Landing from './components/Landing/Landing';
+import Grid from './components/Grid/GridLayout';
 
 Vue.use(VueRouter);
 
 const appOne = { template: `<h1>Eins</h1>`};
-const appThree = { template: `<h1>Hello, {{ $route.params.name }}</h1>`};
 const appFour = {
   template: `<h1>Yo, {{ $route.params.name }}</h1>`,
   beforeRouteUpdate(to, from, next) {
@@ -32,7 +32,7 @@ const appFour = {
 const routes = [
   { path: '/login', component: Login },
   { path: '/landing', component: Landing },
-  { path: '/three/:name', component: appThree },
+  { path: '/grid', component: Grid },
   { path: '/four/:name', component: appFour, props: true },
 ]
 
