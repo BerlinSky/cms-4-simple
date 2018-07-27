@@ -30,6 +30,7 @@ const appFour = {
 };
 
 const routes = [
+  { path: '/', component: Login },
   { path: '/login', component: Login },
   { path: '/landing', component: Landing },
   { path: '/grid', component: Grid },
