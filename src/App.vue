@@ -21,13 +21,4 @@ export default {
 
 <style lang="scss">
   @import "./assets/scss/main";
-
-  .course-list {
-    background-color: tomato;
-    padding: 10px;
-    width: 50%;
-    text-align: center;
-    margin: 0 auto;
-    color: white;
-  }
 </style>
