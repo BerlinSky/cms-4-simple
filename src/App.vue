@@ -19,7 +19,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  @import "./assets/scss/main";
+
   .course-list {
     background-color: tomato;
     padding: 10px;
