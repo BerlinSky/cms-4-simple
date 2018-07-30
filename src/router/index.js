@@ -16,5 +16,6 @@ const routes = [
 ]
 
 export default new Router({
-  routes
+  routes,
+  mode: "history"
 })
